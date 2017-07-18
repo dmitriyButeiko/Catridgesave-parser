@@ -1,13 +1,13 @@
 <?php 
 
 	// Turn on errors and increase time execution time
-	set_time_limit(99999999);
+	set_time_limit(1000);
 	ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    ini_set('memory_limit', '999999999');
-    error_reporting(E_ALL);
+    	ini_set('display_startup_errors', 1);
+    	ini_set('memory_limit', '10000');
+    	error_reporting(E_ALL);
 
-    // require all needed libraries
+    	// require all needed libraries
 	require_once "HttpHelper.php";
 	require_once "CsvHelper.php";
 	require_once "SimpleHtmlDom.php";
@@ -50,9 +50,6 @@
 				}
 			}
 
-
-			var_dump($productsInfo);
-
 			$this->csvHelper->generateProductsCsvFile($productsInfo);
 		}
 
@@ -60,7 +57,7 @@
 		public function loadProducts()
 		{
 			$allSubcategories = $this->getAllSubcategories($mainPageHtml);
-            $this->processSubCategories($allSubcategories);
+            		$this->processSubCategories($allSubcategories);
 		}
 
 		public static function getParser()
@@ -122,10 +119,9 @@
 					}
 				}
 			}
-
-            echo "Subcategories fetched..." . "\n";
-
-            return $allSubcategories;
+            		echo "Subcategories fetched..." . "\n";
+			
+            		return $allSubcategories;
 		}
 
 		public function processSubCategories($allSubcategories)
